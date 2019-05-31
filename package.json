@@ -1,0 +1,25 @@
+{
+  "name": "dynamic-file-loader",
+  "version": "1.0.0",
+  "description": "Require or import files of directory dynamically",
+  "main": "lib/index.js",
+  "scripts": {
+    "start": "node lib/index.js",
+    "test": "mocha --reporter spec test/index.js",
+    "test_": "node test/index.js"
+  },
+  "keywords": [
+    "nodejs",
+    "files",
+    "require",
+    "import",
+    "dynamic",
+    "importer"
+  ],
+  "author": "carboleda",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4"
+  }
+}
