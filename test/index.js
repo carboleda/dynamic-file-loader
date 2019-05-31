@@ -29,7 +29,6 @@ describe('DynamicFileLoader ', function () {
         let merged = {};
         new DynamicFileLoader.Builder()
             .onDirectory(`${__dirname}/files`)
-            //ommit: ['file3.js'],
             .withFilter(/file([4-6]).js/)
             .withRequirer(filePath => merged = { ...merged, ...require(filePath) })
             .build()
@@ -47,7 +46,7 @@ describe('DynamicFileLoader ', function () {
             .build()
             .load({
                 dirPath: `${__dirname}/files`,
-                ommit: /file([4-6]).js/,
+                filer: /file([4-6]).js/,
                 fnRequire: filePath => merged = { ...merged, ...require(filePath) }
             })
             .then(result => {
