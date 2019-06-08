@@ -5,7 +5,7 @@ const DynamicFileLoader = require('../lib');
 describe('DynamicFileLoader ', function () {
     it('Check if load all files on directory', function (done) {
         new DynamicFileLoader.Builder()
-            .onDirectory(`${__dirname}/files`)
+            .onDirectory(__dirname, '/files')
             .build()
             .load()
             .then(result => {
@@ -17,7 +17,7 @@ describe('DynamicFileLoader ', function () {
 
     it('Check if load files from 1 to 3', function (done) {
         new DynamicFileLoader.Builder()
-            .onDirectory(`${__dirname}/files`)
+            .onDirectory(__dirname, '/files')
             .withFilter(/file([1-3]).js/)
             .build()
             .load()
@@ -28,9 +28,11 @@ describe('DynamicFileLoader ', function () {
     it('Check if load files from 4 to 6 with custom requirer', function (done) {
         let merged = {};
         new DynamicFileLoader.Builder()
-            .onDirectory(`${__dirname}/files`)
+            .onDirectory(__dirname, '/files')
             .withFilter(/file([4-6]).js/)
-            .withRequirer(filePath => merged = { ...merged, ...require(filePath) })
+            .withRequirer((absolutePath, dirPath, fileName) => {
+                merged = { ...merged, ...require(absolutePath) }
+            })
             .build()
             .load()
             .then(result => {
@@ -42,12 +44,13 @@ describe('DynamicFileLoader ', function () {
 
     it('Check if load files from 4 to 6 using option argument style', function (done) {
         let merged = {};
-        new DynamicFileLoader.Builder()
-            .build()
-            .load({
-                dirPath: `${__dirname}/files`,
+        new DynamicFileLoader().load({
+                basePath: __dirname,
+                dirPath: '/files',
                 filer: /file([4-6]).js/,
-                fnRequire: filePath => merged = { ...merged, ...require(filePath) }
+                fnRequire: (absolutePath, dirPath, fileName) => {
+                    merged = { ...merged, ...require(absolutePath) }
+                }
             })
             .then(result => {
                 assert.equal(Object.keys(merged).length, 3, 'Files loades is not 3');

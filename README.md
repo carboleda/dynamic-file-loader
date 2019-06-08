@@ -1,3 +1,21 @@
+# **Dynamic File Loader (DFL)**
+## Require or import files of directory dynamically and reduce your code.
+
+[![Build Status](https://travis-ci.org/carboleda/dynamic-file-loader.svg?branch=master)](https://travis-ci.org/carboleda/dynamic-file-loader)
+
+![Build Status](./docs/comparation.png)
+
+# **Installation**
+This is a Node.js module available through the npm registry.
+
+Before installing, download and install Node.js. Node.js 0.10 or higher is required.
+
+Installation is done using the npm install command:
+
+```shell
+$ npm install dynamic-file-loader
+```
+
 # **Features**
 ---
 - Load all files in a directory dynamically
