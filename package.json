@@ -1,25 +1,37 @@
 {
-  "name": "dynamic-file-loader",
-  "version": "1.0.1",
-  "description": "Require or import files of directory dynamically",
-  "main": "lib/index.js",
-  "scripts": {
-    "start": "node lib/index.js",
-    "test": "mocha --reporter spec test/index.js",
-    "test_": "node test/index.js"
-  },
-  "keywords": [
-    "nodejs",
-    "files",
-    "require",
-    "import",
-    "dynamic",
-    "importer"
-  ],
-  "author": "carboleda",
-  "license": "ISC",
-  "devDependencies": {
-    "chai": "^4.2.0",
-    "mocha": "^6.1.4"
-  }
+    "name": "dynamic-file-loader",
+    "version": "1.0.1",
+    "description": "Require or import files of directory dynamically",
+    "main": "lib/index.js",
+    "scripts": {
+        "start": "node lib/index.js",
+        "test": "mocha --reporter spec test/index.js",
+        "test_": "node test/index.js"
+    },
+    "keywords": [
+        "nodejs",
+        "files",
+        "require",
+        "import",
+        "dynamic",
+        "importer"
+    ],
+    "engines": {
+        "node": ">=8.11.1"
+    },
+    "author": "carboleda",
+    "license": "ISC",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/carboleda/dynamic-file-loader.git"
+    },
+    "homepage": "https://github.com/carboleda/dynamic-file-loader#readme",
+    "bugs": {
+        "url": "https://github.com/carboleda/dynamic-file-loader/issues",
+        "email": "arbofercho@gmail.com"
+    },
+    "devDependencies": {
+        "chai": "^4.2.0",
+        "mocha": "^6.1.4"
+    }
 }
