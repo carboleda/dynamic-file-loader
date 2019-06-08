@@ -1,6 +1,6 @@
 {
   "name": "dynamic-file-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Require or import files of directory dynamically",
   "main": "lib/index.js",
   "scripts": {
