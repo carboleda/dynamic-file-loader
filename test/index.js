@@ -3,7 +3,7 @@ const assert = chai.assert;
 const DynamicFileLoader = require('../lib');
 
 describe('DynamicFileLoader ', function () {
-    it('Check if load all files on directory', function (done) {
+    it('Check if load all files on directory ommiting subdirs', function (done) {
         new DynamicFileLoader.Builder()
             .onDirectory(__dirname, '/files')
             .build()
@@ -53,8 +53,33 @@ describe('DynamicFileLoader ', function () {
                 }
             })
             .then(result => {
-                console.log('merged', merged);
                 assert.equal(Object.keys(merged).length, 3, 'Files loades is not 3');
+                done();
+            })
+            .catch(done);
+    });
+
+    it('Check if load files on subdirs using builder style', function (done) {
+        new DynamicFileLoader.Builder()
+            .onDirectory(__dirname, '/files')
+            .includeSubdirs()
+            .build()
+            .load()
+            .then(result => {
+                assert.equal(result.loadedFiles, 9, 'Files loades is not 8');
+                done();
+            })
+            .catch(done);
+    });
+
+    it('Check if load files on subdirs using option argument style', function (done) {
+        new DynamicFileLoader().load({
+                basePath: __dirname,
+                dirPath: '/files',
+                includeSubdirs: true
+            })
+            .then(result => {
+                assert.equal(result.loadedFiles, 9, 'Files loades is not 8');
                 done();
             })
             .catch(done);

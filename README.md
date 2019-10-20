@@ -18,7 +18,8 @@ $ npm install dynamic-file-loader
 
 # **Features**
 ---
-- Load all files in a directory dynamically
+- Dynamically load all files in a directory
+- Dynamically load all files in a directory incluie it's sub directoris
 - Filter files to load using exclusion array or regular expression
 - Use builder or option argument style
 - Support promise or async/await
@@ -29,6 +30,11 @@ $ npm install dynamic-file-loader
 All examples are made assuming a directory named files with multiples files inside. So:
 ```shell
 files/
+ |-- dir1/
+ |    `-- file7.js
+ |-- dir2/
+ |    |-- file8.js
+ |    `-- file9.js
  |-- file1.js
  |-- file2.js
  |-- file3.js
