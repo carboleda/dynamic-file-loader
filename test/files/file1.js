@@ -1,3 +1,8 @@
 'use strict'
 
-module.exports = () => console.log('File 1');
+module.exports = () => {
+    const a = 0;
+    if(a === 0) {
+        console.log('File 1');
+    }
+};

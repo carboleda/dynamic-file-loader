@@ -31,7 +31,7 @@ describe('DynamicFileLoader ', function () {
             .onDirectory(__dirname, '/files')
             .withFilter(/file([4-6]).js/)
             .withRequirer((absolutePath, dirPath, fileName) => {
-                merged = { ...merged, ...require(absolutePath) }
+                merged = { ...merged, ...require(absolutePath)() }
             })
             .build()
             .load()
@@ -49,10 +49,11 @@ describe('DynamicFileLoader ', function () {
                 dirPath: '/files',
                 filer: /file([4-6]).js/,
                 fnRequire: (absolutePath, dirPath, fileName) => {
-                    merged = { ...merged, ...require(absolutePath) }
+                    merged = { ...merged, ...require(absolutePath)() }
                 }
             })
             .then(result => {
+                console.log('merged', merged);
                 assert.equal(Object.keys(merged).length, 3, 'Files loades is not 3');
                 done();
             })

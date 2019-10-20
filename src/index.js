@@ -91,7 +91,7 @@ function loadFiles(filesNames, basePath, dirPath, fnRequire) {
         //Si es un directorio se omite
         if (fs.statSync(absolutePath).isDirectory()) return;
 
-        if(fnRequire) await fnRequire(absolutePath, dirPath, fileName);
+        if (fnRequire) await fnRequire(absolutePath, dirPath, fileName);
         else require(absolutePath);
     }));
 }

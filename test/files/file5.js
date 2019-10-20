@@ -1,3 +1,3 @@
 'use strict'
 
-module.exports = { five: 5 };
+module.exports = () => ({ five: 5 });
